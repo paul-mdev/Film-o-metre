@@ -1,0 +1,66 @@
+.filmometre-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.film-content {
+  background-color: var(--color-white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.film-title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.film-content img {
+  display: block;
+  margin: 0 auto 1rem;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.film-content p {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.review-section {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+}
+
+/* FloatingControls (le select + formulaire) peuvent être stylés ici ou dans leur propre fichier */
+
+
+
+/* Boutons de navigation (flèches) */
+.nav-button {
+
+  position: absolute;
+  top: 50%;
+ 
+
+  transform: translateY(-50%);
+  background-color: var(--color-accent, #ff6659);
+  border: none;
+  color: white;
+  font-size: 1.2rem; /* adapte la taille texte */
+
+  cursor: pointer;
+  z-index: 2;
+
+  /* largeur/hauteur automatiques selon contenu */
+  padding: 0.5rem 1rem;
+  border-radius: 6px; /* coins arrondis mais pas rond complet */
+
+  white-space: nowrap; /* empêche le texte de couper */
+
+
+  right: 1.5rem;
+}
