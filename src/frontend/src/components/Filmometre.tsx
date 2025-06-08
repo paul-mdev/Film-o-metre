@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import './Filmometre.css';
 import FloatingControls from "./FloatingControls.tsx";
 
@@ -14,13 +13,13 @@ function Filmometre() {
   const [film, setFilm] = useState<Film | null>(null);
   const [type, setType] = useState<"film" | "anime">("film");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [, setError] = useState<string | null>(null);
 
   const fetchNext = async () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`/${type}`);
+      const response = await fetch(`/api/${type}`);
       if (!response.ok) throw new Error(`Erreur HTTP ${response.status}`);
       const data = await response.json();
       setFilm(data);

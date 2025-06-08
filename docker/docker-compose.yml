@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ../src/backend
+      dockerfile: ../../docker/backend.Dockerfile
+    container_name: filmometre-backend
+    ports:
+      - "8000:8000"
+    networks:
+      - filmonet
+    volumes:
+      - sqlite-data:/app/data
+
+  frontend:
+    build:
+      context: ../src/frontend
+      dockerfile: ../../docker/frontend.Dockerfile
+    container_name: filmometre-frontend
+    networks:
+      - filmonet
+
+  proxy:
+    image: caddy:alpine
+    container_name: reverse-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+    networks:
+      - filmonet
+
+volumes:
+  sqlite-data:
+
+networks:
+  filmonet:
+    driver: bridge
